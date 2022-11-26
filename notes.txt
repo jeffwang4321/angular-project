@@ -1,0 +1,28 @@
+Pig Report Details
+
+Person name: string
+Person Phone#: number
+
+Pig breed: string
+Pig ID: number
+
+Location: string
+Extra notes: string
+time/date: auto generate? string
+Status: enum string (READY FOR PICKUP | RETRIEVED) 
+
+
+
+User requirements
+Data Table
+- Sort datatable by Location, Reported by, or Time Reported
+- Change status and delete report btns (password protected)
+- More info popup
+- Add add report popup
+- Dropdown menu of existing places or to add new location
+
+Map
+- All locations shown using markers
+- Markers show report numbers on click
+
+
