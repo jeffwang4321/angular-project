@@ -26,3 +26,11 @@ Map
 - Markers show report numbers on click
 
 
+npm install
+ng server -o
+ng generate component map
+ng generate component datatable
+ng generate component addpigmodal
+
+
+
