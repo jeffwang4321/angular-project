@@ -4,9 +4,14 @@ export interface Report {
   id: number;
   breed: string;
   location: string;
-  lon: number;
-  lat: number;
   notes: string;
   date: string;
   status: string;
+}
+
+export interface Location {
+  name: string;
+  lon: number;
+  lat: number;
+  count: number;
 }

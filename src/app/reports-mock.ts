@@ -1,4 +1,4 @@
-import { Report } from './report';
+import { Report } from './interface';
 
 export const REPORTS: Report[] = [
   { 
@@ -7,8 +7,6 @@ export const REPORTS: Report[] = [
     id: 0,
     breed: 'a',
     location: 'a',
-    lon: 0,
-    lat: 0,
     notes: 'a',
     date: 'a',
     status: 'a',
@@ -19,8 +17,6 @@ export const REPORTS: Report[] = [
     id: 1,
     breed: 'b',
     location: 'b',
-    lon: 1,
-    lat: 1,
     notes: 'b',
     date: 'b',
     status: 'b',
@@ -31,8 +27,6 @@ export const REPORTS: Report[] = [
     id: 2,
     breed: 'c',
     location: 'c',
-    lon: 2,
-    lat: 2,
     notes: 'c',
     date: 'c',
     status: 'c',

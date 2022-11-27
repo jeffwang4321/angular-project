@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Report } from '../../report';
-import { REPORTS } from '../../reports-mock';
+import { Report } from '../interface';
+import { REPORTS } from '../reports-mock';
 
 @Component({
   selector: 'app-datatable',
@@ -20,6 +20,7 @@ export class DatatableComponent implements OnInit {
   getReports(): void {
     // this.heroService.getHeroes()
     //     .subscribe(heroes => this.heroes = heroes);
+    
     this.reports = REPORTS;
   }
 
