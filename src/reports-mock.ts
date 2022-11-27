@@ -1,0 +1,40 @@
+import { Report } from './report';
+
+export const REPORTS: Report[] = [
+  { 
+    name: 'a',
+    phone: 'a',
+    id: 0,
+    breed: 'a',
+    location: 'a',
+    lon: 0,
+    lat: 0,
+    notes: 'a',
+    date: 'a',
+    status: 'a',
+  },
+  { 
+    name: 'b',
+    phone: 'b',
+    id: 1,
+    breed: 'b',
+    location: 'b',
+    lon: 1,
+    lat: 1,
+    notes: 'b',
+    date: 'b',
+    status: 'b',
+  },
+  { 
+    name: 'c',
+    phone: 'c',
+    id: 2,
+    breed: 'c',
+    location: 'c',
+    lon: 2,
+    lat: 2,
+    notes: 'c',
+    date: 'c',
+    status: 'c',
+  },
+]

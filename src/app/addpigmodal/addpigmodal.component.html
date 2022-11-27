@@ -9,11 +9,19 @@
         <div class="col-sm-6">
           <div class="form-group">
             <label>Name:</label>
-            <input type="text" class="form-control" id="addName" placeholder="Ex: Bobby" autocomplete="off" maxlength="20" required="required"/>
+            <input type="text" class="form-control" id="addName" autocomplete="off" maxlength="20" required="required"/>
           </div>
           <div class="form-group">
             <label>Phone:</label>
-            <input type="number" class="form-control" id="addPhone" placeholder="Ex: 123 456 7890" pattern=".{10,10}" required="required"/>
+            <input type="number" class="form-control" id="addPhone" pattern=".{10,10}" required="required"/>
+          </div>
+          <div class="form-group">
+            <label>Location:</label>
+            <input type="text" class="form-control" id="addLocation" autocomplete="off" maxlength="25" required="required"/>
+          </div>
+          <div class="form-group">
+            <label>Notes:</label>
+            <input type="text" class="form-control" id="addNotes" autocomplete="off" maxlength="200" required="required"/>
           </div>
           <!-- <div class="form-group">
             <label>Weight (kg):</label>
@@ -25,7 +33,7 @@
           <div class="form-group">
             <div class="form-group">
               <label>Pig ID:</label>
-              <input type="number" class="form-control" id="addPigId" placeholder="Ex: 100" min="0" maxlength="10" required="required"/>
+              <input type="number" class="form-control" id="addPigId" min="0" maxlength="10" required="required"/>
             </div>
           </div> 
           <div class="form-group">
@@ -45,14 +53,14 @@
       </div>
     </div>
     <div class="modal-footer">
-      <button type="submit" class="btn btn-outline-dark">Save</button>
-      <!-- <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button> -->
+      <!-- <button type="submit" class="btn btn-outline-dark">Save</button> -->
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
     </div>
   </form>
 </ng-template>
 
 <button class="btn btn-lg btn-outline-primary" (click)="open(content)">CREATE PIG REPORT</button>
 
-<hr />
+<!-- <hr /> -->
 
 <pre>{{ closeResult }}</pre>

@@ -1,1 +1,24 @@
-<p>datatable works!</p>
+<table class="table" id="mainTable">
+  <thead>
+    <tr>
+      <th>Location</th>
+      <th>Reported By</th>
+      <th>Time Reported</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody class="table" id="mainTableBody">
+    <tr *ngFor="let report of reports">
+      <td>{{report.location}}</td>
+      <td>{{report.name}}</td>
+      <td>{{report.date}}</td>
+      <td>{{report.status}}</td>
+      <button class="btn btn-info" id="info"> 
+        <i class="bi bi-info-circle-fill"></i>
+      </button> 
+      <button class="btn btn-danger" id="delete"> 
+        <i class="bi bi-trash-fill"></i>
+      </button> 
+    </tr>
+  </tbody>
+</table>
