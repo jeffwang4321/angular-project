@@ -42,10 +42,10 @@ export class MapComponent implements OnInit {
       next: (data) => {
         // console.log(data);
         this.locations = data;
-        this.createMap();
+        // this.createMap(); //TODO: uncomment when testing maps API
       },
       error: (error) => {
-        console.error('Error:', error);
+        console.log('Error:', error);
       },
     });
   }
@@ -68,9 +68,9 @@ export class MapComponent implements OnInit {
 
   createMarkers(): void {
     // console.log(this.locations);
-    type ObjectKey = keyof typeof this.locations;
+    // type ObjectKey = keyof typeof this.locations;
 
-    (Object.keys(this.locations) as ObjectKey[]).forEach((key) => {
+    (Object.keys(this.locations) as (keyof typeof this.locations)[]).forEach((key) => {
       let obj = this.locations[key];
       const data = 'data' as keyof typeof obj;
       console.log(obj[data]);
