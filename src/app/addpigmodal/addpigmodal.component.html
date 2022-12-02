@@ -3,60 +3,46 @@
 		<h4 class="modal-title" id="modal-basic-title">Profile update</h4>
 		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
 	</div>
-  <form id="addPigForm">
-    <div class="modal-body">
-      <div class="row">
-        <div class="col-sm-6">
-          <div class="form-group">
-            <label>Name:</label>
-            <input type="text" class="form-control" id="addName" autocomplete="off" maxlength="20" required="required"/>
-          </div>
-          <div class="form-group">
-            <label>Phone:</label>
-            <input type="number" class="form-control" id="addPhone" pattern=".{10,10}" required="required"/>
-          </div>
-          <div class="form-group">
-            <label>Location:</label>
-            <input type="text" class="form-control" id="addLocation" autocomplete="off" maxlength="25" required="required"/>
-          </div>
-          <div class="form-group">
-            <label>Notes:</label>
-            <input type="text" class="form-control" id="addNotes" autocomplete="off" maxlength="200" required="required"/>
-          </div>
-          <!-- <div class="form-group">
-            <label>Weight (kg):</label>
-            <input type="number" class="form-control" id="addWeight" placeholder="Ex: 200" min="1" max="99999" step="1" required="required"/>
-          </div> -->
-        </div>
 
-        <div class="col-sm-6">
-          <div class="form-group">
-            <div class="form-group">
-              <label>Pig ID:</label>
-              <input type="number" class="form-control" id="addPigId" min="0" maxlength="10" required="required"/>
-            </div>
-          </div> 
-          <div class="form-group">
-            <label>Breed:</label>
-            <select class="form-control" id="addBreed"> 
-              <option value="Carbon Black">Carbon Black</option>
-              <option value="Pure Black">Pure Black</option>
-              <option value="Hazelnut">Hazelnut</option>
-              <option value="Walnut">Walnut</option>
-              <option value="Light Grey">Light Grey</option>
-              <option value="Dark Grey">Dark Grey</option>
-              <option value="Ghost White">Ghost White</option>
-              <option value="Ivory White">Ivory White</option>
-            </select>
-          </div> 
-        </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-sm-6">
+        <label>Name:</label>
+        <input type="text" class="form-control" id="addName" autocomplete="off" maxlength="20" required [(ngModel)]="reportInput.name"/>
+        <label>Phone:</label>
+        <input type="number" class="form-control" id="addPhone" pattern=".{10,10}" required [(ngModel)]="reportInput.phone"/>
+        <label>Location:</label>
+        <input type="text" class="form-control" id="addLocation" autocomplete="off" maxlength="25" required [(ngModel)]="reportInput.location" [(ngModel)]="locationInput.name"/>
+        <label>Notes:</label>
+        <input type="text" class="form-control" id="addNotes" autocomplete="off" maxlength="100" required [(ngModel)]="reportInput.notes"/>
+      </div>
+
+      <div class="col-sm-6">
+        <label>Pig ID:</label>
+        <input type="number" class="form-control" id="addPigId" min="0" maxlength="10" required [(ngModel)]="reportInput.id"/>
+        <label>Breed:</label>
+        <select class="form-control" id="addBreed" [(ngModel)]="reportInput.breed"> 
+          <option value="Carbon Black">Carbon Black</option>
+          <option value="Pure Black">Pure Black</option>
+          <option value="Hazelnut">Hazelnut</option>
+          <option value="Walnut">Walnut</option>
+          <option value="Light Grey">Light Grey</option>
+          <option value="Dark Grey">Dark Grey</option>
+          <option value="Ghost White">Ghost White</option>
+          <option value="Ivory White">Ivory White</option>
+        </select>
+          <label>Longitude:</label>
+          <input type="number" class="form-control" id="addLog" maxlength="10" required [(ngModel)]="locationInput.lon"/>
+          <label>Latitude:</label>
+          <input type="number" class="form-control" id="addLat" maxlength="10" required [(ngModel)]="locationInput.lat"/>
       </div>
     </div>
-    <div class="modal-footer">
-      <!-- <button type="submit" class="btn btn-outline-dark">Save</button> -->
-      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
-    </div>
-  </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+  </div>
 </ng-template>
 
-<button class="btn btn-lg btn-outline-primary" (click)="open(content)">CREATE PIG REPORT</button>
+<button class="btn btn-lg btn-primary" (click)="open(content)">CREATE PIG REPORT</button>
+<br/>
+<br/>

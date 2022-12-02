@@ -5,8 +5,9 @@ export interface Report {
   breed: string;
   location: string;
   notes: string;
-  date: string;
+  date: Date;
   status: string;
+  key: number;
 }
 
 export interface Location {
@@ -14,4 +15,5 @@ export interface Location {
   lon: number;
   lat: number;
   count: number;
+  key: number;
 }

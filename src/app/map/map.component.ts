@@ -42,7 +42,7 @@ export class MapComponent implements OnInit {
       next: (data) => {
         // console.log(data);
         this.locations = data;
-        // this.createMap(); //TODO: uncomment when testing maps API
+        this.createMap(); // Function to render the map
       },
       error: (error) => {
         console.log('Error:', error);
@@ -54,7 +54,7 @@ export class MapComponent implements OnInit {
     this.map = L.map('mapid').setView([49.23, -122.85], 11);
 
     L.tileLayer(
-      'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiamVmZndhbmcxMjMiLCJhIjoiY2xheWc1ajN6MHpiZTN1cXU2Y2h0bWNmcCJ9.Pl6JhIepF3ma9Ma1iwOh3w',
+      'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiandhMjIwIiwiYSI6ImNsYjVzbGZlZDA2MmYzb3A1YTM3ZThqejYifQ.x94a6NbHq2c-dfv2ovdgjg',
       {
         maxZoom: 18,
         id: 'mapbox/streets-v11',
@@ -73,7 +73,7 @@ export class MapComponent implements OnInit {
     (Object.keys(this.locations) as (keyof typeof this.locations)[]).forEach((key) => {
       let obj = this.locations[key];
       const data = 'data' as keyof typeof obj;
-      console.log(obj[data]);
+      // console.log(obj[data]);
       L.marker([obj[data]['lon'], obj[data]['lat']])
         .addTo(this.map)
         .bindPopup(

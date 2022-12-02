@@ -1,24 +1,39 @@
 <table class="table" id="mainTable">
   <thead>
     <tr>
-      <th>Location</th>
-      <th>Reported By</th>
-      <th>Time Reported</th>
-      <th>Status</th>
+      <th>
+        <button class="btn btn-light" (click)="sortLocation()"><b>Location</b></button> 
+      </th>
+      <th>
+        <button class="btn btn-light" (click)="sortName()"><b>Reported By</b></button>
+      </th>
+      <th>
+        <button class="btn btn-light" (click)="sortDate()"><b>Time Reported</b></button>
+      </th>
+      <th>
+        <button class="btn btn-light" (click)="sortStatus()"><b>Status</b></button>
+      </th>
+      <th></th>
     </tr>
   </thead>
-  <tbody class="table" id="mainTableBody">
+  <tbody id="mainTableBody">
     <tr *ngFor="let report of reports">
       <td>{{report.location}}</td>
       <td>{{report.name}}</td>
       <td>{{report.date}}</td>
-      <td>{{report.status}}</td>
-      <button class="btn btn-info" id="info"> 
-        <i class="bi bi-info-circle-fill"></i>
-      </button> 
-      <button class="btn btn-danger" id="delete"> 
-        <i class="bi bi-trash-fill"></i>
-      </button> 
+      <td>
+        <button class="btn btn-link" (click)="getReport(report.key)"> 
+          {{report.status}}
+        </button> 
+      </td>
+      <td>
+        <button class="btn btn-info" (click)="getReport(report.key)"> 
+          <i class="bi bi-info-circle-fill"></i>
+        </button> 
+        <button class="btn btn-danger" (click)="deleteReport(report.key)"> 
+          <i class="bi bi-trash-fill"></i>
+        </button> 
+      </td>
     </tr>
   </tbody>
 </table>
