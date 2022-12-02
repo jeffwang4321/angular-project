@@ -5,7 +5,7 @@ export interface Report {
   breed: string;
   location: string;
   notes: string;
-  date: Date;
+  date: string;
   status: string;
   key: number;
 }

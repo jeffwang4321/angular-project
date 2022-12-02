@@ -8,13 +8,17 @@ import { AppComponent } from './app.component';
 import { DatatableComponent } from './datatable/datatable.component';
 import { MapComponent } from './map/map.component';
 import { AddpigmodalComponent } from './addpigmodal/addpigmodal.component';
+import { PasswordmodalComponent } from './passwordmodal/passwordmodal.component';
+import { InfomodalComponent } from './infomodal/infomodal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DatatableComponent,
     MapComponent,
-    AddpigmodalComponent
+    AddpigmodalComponent,
+    PasswordmodalComponent,
+    InfomodalComponent
   ],
   imports: [
     BrowserModule,

@@ -18,7 +18,7 @@ export class AddpigmodalComponent implements OnInit {
 		breed: "",
 		location: "",
 		notes: "",
-		date: new Date(),
+		date: (new Date()).toLocaleString(),
 		status: "READY FOR PICKUP",
 		key: 0, 
   };

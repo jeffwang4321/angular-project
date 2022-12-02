@@ -79,8 +79,8 @@ export class DatatableComponent implements OnInit {
   }
   sortDate(): void {
     this.reports.sort(function(a, b) {
-      let textA: Date = a.date;
-      let textB: Date = b.date;
+      let textA: string = a.date;
+      let textB: string = b.date;
       return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
     })
   }

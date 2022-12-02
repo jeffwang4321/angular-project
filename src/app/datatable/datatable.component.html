@@ -2,13 +2,13 @@
   <thead>
     <tr>
       <th>
+        <button class="btn btn-light" (click)="sortName()"><b>Reporter</b></button>
+      </th>
+      <th>
         <button class="btn btn-light" (click)="sortLocation()"><b>Location</b></button> 
       </th>
       <th>
-        <button class="btn btn-light" (click)="sortName()"><b>Reported By</b></button>
-      </th>
-      <th>
-        <button class="btn btn-light" (click)="sortDate()"><b>Time Reported</b></button>
+        <button class="btn btn-light" (click)="sortDate()"><b>Time</b></button>
       </th>
       <th>
         <button class="btn btn-light" (click)="sortStatus()"><b>Status</b></button>
@@ -18,8 +18,8 @@
   </thead>
   <tbody id="mainTableBody">
     <tr *ngFor="let report of reports">
-      <td>{{report.location}}</td>
       <td>{{report.name}}</td>
+      <td>{{report.location}}</td>
       <td>{{report.date}}</td>
       <td>
         <button class="btn btn-link" (click)="getReport(report.key)"> 
@@ -27,9 +27,7 @@
         </button> 
       </td>
       <td>
-        <button class="btn btn-info" (click)="getReport(report.key)"> 
-          <i class="bi bi-info-circle-fill"></i>
-        </button> 
+        <app-infomodal [report]="report"></app-infomodal>
         <button class="btn btn-danger" (click)="deleteReport(report.key)"> 
           <i class="bi bi-trash-fill"></i>
         </button> 
@@ -37,3 +35,4 @@
     </tr>
   </tbody>
 </table>
+
