@@ -51,7 +51,6 @@ export class DatatableComponent implements OnInit {
       },
     });
   }
-
   deleteReport(id: number): void {
     this.http.delete<Report[]>(this.apiURL + 'reports/documents/' + id + '/',).subscribe({
       next: () => {
@@ -61,6 +60,31 @@ export class DatatableComponent implements OnInit {
         console.log('Error:', error);
       },
     });
+  }
+
+  toggleStatus(report: Report): void {
+		let obj = {
+			"key": report.key,
+			"data": report,
+		}
+		if (report.status == "READY FOR PICKUP"){
+      obj["data"].status = "RETRIEVED";
+    } else {
+      obj["data"].status = "READY FOR PICKUP";
+    }
+
+    this.http.put<Report[]>(this.apiURL + 'reports/documents/' + report.key + '/',
+    	obj
+		).subscribe({
+      next: (data) => {
+        // console.log(data);
+				// location.reload();
+      },
+      error: (error) => {
+        console.log('Error:', error);
+      },
+    });
+
   }
 
   sortLocation(): void {
@@ -91,4 +115,5 @@ export class DatatableComponent implements OnInit {
       return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
     })
   }
+
 }

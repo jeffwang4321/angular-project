@@ -8,7 +8,6 @@ import { AppComponent } from './app.component';
 import { DatatableComponent } from './datatable/datatable.component';
 import { MapComponent } from './map/map.component';
 import { AddpigmodalComponent } from './addpigmodal/addpigmodal.component';
-import { PasswordmodalComponent } from './passwordmodal/passwordmodal.component';
 import { InfomodalComponent } from './infomodal/infomodal.component';
 
 @NgModule({
@@ -17,7 +16,6 @@ import { InfomodalComponent } from './infomodal/infomodal.component';
     DatatableComponent,
     MapComponent,
     AddpigmodalComponent,
-    PasswordmodalComponent,
     InfomodalComponent
   ],
   imports: [
