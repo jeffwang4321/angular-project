@@ -14,7 +14,7 @@ export class AddpigmodalComponent implements OnInit {
 	@Input() reportInput: Report = {
 		name: "",
 		phone: "",
-		id: 0,
+		id: "",
 		breed: "",
 		location: "",
 		notes: "",
@@ -25,8 +25,8 @@ export class AddpigmodalComponent implements OnInit {
 
 	@Input() locationInput: Location = {
 		name: "",
-		lon: 0,
-		lat: 0,
+		lon: "",
+		lat: "",
 		count: 0,
 		key: 0,
   };
@@ -37,18 +37,7 @@ export class AddpigmodalComponent implements OnInit {
   }
 
 	open(content: any) {
-		this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then(
-			(result) => {
-				// console.log('Result', result);
-				// console.log(this.reportInput);
-				// console.log(this.locationInput);
-				this.addReport();
-				// this.addLocation();
-			},
-			(reason) => {
-				console.log('Reason', reason);
-			},
-		);
+		this.modalService.open(content);
 	}
 
 	addReport(): void {
@@ -88,4 +77,21 @@ export class AddpigmodalComponent implements OnInit {
       },
     });
   }
+
+	validateReport(): void {
+		if (this.reportInput.name === "") {
+			alert("Please enter a reporter name");
+		} else if (this.reportInput.phone == null || (this.reportInput.phone).toString().length != 10) {
+			alert("Please enter a 10 digit phone number");
+		} else if (this.reportInput.location === "") {
+			alert("Please enter a location");
+		} else if (this.reportInput.id === "" || this.reportInput.id === null || Number(this.reportInput.id) < 0) {	
+			alert("Please enter a non-negative pig ID");
+		} else if (this.reportInput.breed === "") {
+			alert("Please enter a pig breed");
+		} else {
+			this.addReport();
+			this.modalService.dismissAll();
+		}
+	}
 }

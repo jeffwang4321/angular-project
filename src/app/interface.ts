@@ -1,7 +1,7 @@
 export interface Report {
   name: string;
-  phone: string;
-  id: number;
+  phone: String;
+  id: string;
   breed: string;
   location: string;
   notes: string;
@@ -12,8 +12,8 @@ export interface Report {
 
 export interface Location {
   name: string;
-  lon: number;
-  lat: number;
+  lon: string;
+  lat: string;
   count: number;
   key: number;
 }

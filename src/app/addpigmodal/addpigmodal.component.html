@@ -10,7 +10,7 @@
         <label>Reporter</label>
         <input type="text" class="form-control" autocomplete="off" [(ngModel)]="reportInput.name"/>
         <label>Phone</label>
-        <input type="number" class="form-control" [(ngModel)]="reportInput.phone"/>
+        <input type="number" class="form-control" step="1" min="0" [(ngModel)]="reportInput.phone"/>
         <label>Location</label>
         <input type="text" class="form-control" autocomplete="off" [(ngModel)]="reportInput.location" [(ngModel)]="locationInput.name"/>
         <label>Notes</label>
@@ -19,7 +19,7 @@
 
       <div class="col-sm-6">
         <label>Pig ID</label>
-        <input type="number" class="form-control" [(ngModel)]="reportInput.id"/>
+        <input type="number" class="form-control" step="1" min="0" onkeypress="return event.charCode >= 48 && event.charCode <= 57" [(ngModel)]="reportInput.id"/>
         <label>Breed</label>
         <select class="form-control" [(ngModel)]="reportInput.breed"> 
           <option value="Carbon Black">Carbon Black</option>
@@ -39,7 +39,7 @@
     </div>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-success" (click)="modal.close('Save click')">Save</button>
+    <button type="button" class="btn btn-success" (click)="validateReport()">Save</button>
   </div>
 </ng-template>
 

@@ -67,7 +67,7 @@ export class DatatableComponent implements OnInit {
 			"key": report.key,
 			"data": report,
 		}
-		if (report.status == "READY FOR PICKUP"){
+		if (report.status === "READY FOR PICKUP"){
       obj["data"].status = "RETRIEVED";
     } else {
       obj["data"].status = "READY FOR PICKUP";
