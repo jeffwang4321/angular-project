@@ -28,8 +28,7 @@ Marker.prototype.options.icon = iconDefault;
 export class MapComponent implements OnInit {
   map: any;
   locations: Location[] = [];
-  apiURL =
-    'https://272.selfip.net/apps/E1uq9AFJb3/collections/locations/documents/';
+  apiURL = 'https://272.selfip.net/apps/E1uq9AFJb3/collections/locations/documents/';
 
   constructor(private http: HttpClient) {}
 
@@ -40,9 +39,8 @@ export class MapComponent implements OnInit {
   getLocations(): void {
     this.http.get<Location[]>(this.apiURL).subscribe({
       next: (data) => {
-        // console.log(data);
         this.locations = data;
-        this.createMap(); // Function to render the map
+        this.createMap();
       },
       error: (error) => {
         console.log('Error:', error);
@@ -52,7 +50,6 @@ export class MapComponent implements OnInit {
 
   createMap(): void {
     this.map = L.map('mapid').setView([49.23, -122.85], 11);
-
     L.tileLayer(
       'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiandhMjIwIiwiYSI6ImNsYjVzbGZlZDA2MmYzb3A1YTM3ZThqejYifQ.x94a6NbHq2c-dfv2ovdgjg',
       {
@@ -67,13 +64,9 @@ export class MapComponent implements OnInit {
   }
 
   createMarkers(): void {
-    // console.log(this.locations);
-    // type ObjectKey = keyof typeof this.locations;
-
     (Object.keys(this.locations) as (keyof typeof this.locations)[]).forEach((key) => {
       let obj = this.locations[key];
       const data = 'data' as keyof typeof obj;
-      // console.log(obj[data]);
       L.marker([obj[data]['lon'], obj[data]['lat']])
         .addTo(this.map)
         .bindPopup(

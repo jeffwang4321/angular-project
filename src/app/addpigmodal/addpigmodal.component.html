@@ -11,13 +11,6 @@
         <input type="text" class="form-control" autocomplete="off" [(ngModel)]="reportInput.name"/>
         <label>Phone</label>
         <input type="number" class="form-control" step="1" min="0" [(ngModel)]="reportInput.phone"/>
-        <label>Location</label>
-        <input type="text" class="form-control" autocomplete="off" [(ngModel)]="reportInput.location" [(ngModel)]="locationInput.name"/>
-        <label>Notes</label>
-        <input type="text" class="form-control" autocomplete="off" [(ngModel)]="reportInput.notes"/>
-      </div>
-
-      <div class="col-sm-6">
         <label>Pig ID</label>
         <input type="number" class="form-control" step="1" min="0" onkeypress="return event.charCode >= 48 && event.charCode <= 57" [(ngModel)]="reportInput.id"/>
         <label>Breed</label>
@@ -31,10 +24,34 @@
           <option value="Ghost White">Ghost White</option>
           <option value="Ivory White">Ivory White</option>
         </select>
+        <label>Notes</label>
+        <input type="text" class="form-control" autocomplete="off" [(ngModel)]="reportInput.notes"/>
+      </div>
+
+      <div class="col-sm-6">
+        <label>Location Setting</label>
+        <select class="form-control" [(ngModel)]="addlocation"> 
+          <option value="yes">Add New Location</option>
+          <option value="no">Existing Locations</option>
+        </select>
+
+        <div [hidden]="addlocation !== 'yes'">
+          <label>Location Name</label>
+          <input type="text" class="form-control" autocomplete="off" [(ngModel)]="reportInput.location"/>
           <label>Longitude</label>
           <input type="number" class="form-control" [(ngModel)]="locationInput.lon"/>
           <label>Latitude</label>
           <input type="number" class="form-control" [(ngModel)]="locationInput.lat"/>
+        </div>
+
+        <div [hidden]="addlocation !== 'no'">
+          <label>Location</label>
+          <select class="form-control" [(ngModel)]="reportInput.location" [(ngModel)]="locationInput.name"> 
+            <option *ngFor="let location of locations" [value]="location.name">
+              {{location.name}}
+            </option>
+          </select>
+        </div>
       </div>
     </div>
   </div>
