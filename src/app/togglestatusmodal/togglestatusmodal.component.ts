@@ -22,6 +22,7 @@ export class TogglestatusmodalComponent {
 
   open(content: any) {
 		this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' });
+    this.password = "";
 	}
 
   validatePassword(): void {
