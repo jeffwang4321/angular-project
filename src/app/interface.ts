@@ -12,8 +12,8 @@ export interface Report {
 
 export interface Location {
   name: string;
-  lon: string;
   lat: string;
+  lon: string;
   count: number;
   key: number;
 }

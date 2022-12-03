@@ -38,16 +38,16 @@
         <div [hidden]="addlocation !== 'yes'">
           <label>Location Name</label>
           <input type="text" class="form-control" autocomplete="off" [(ngModel)]="reportInput.location"/>
-          <label>Longitude</label>
-          <input type="number" class="form-control" [(ngModel)]="locationInput.lon"/>
           <label>Latitude</label>
           <input type="number" class="form-control" [(ngModel)]="locationInput.lat"/>
+          <label>Longitude</label>
+          <input type="number" class="form-control" [(ngModel)]="locationInput.lon"/>  
         </div>
 
         <div [hidden]="addlocation !== 'no'">
           <label>Location</label>
-          <select class="form-control" [(ngModel)]="reportInput.location" [(ngModel)]="locationInput.name"> 
-            <option *ngFor="let location of locations" [value]="location.name">
+          <select class="form-control" [(ngModel)]="locationTemp"> 
+            <option *ngFor="let location of locations" [ngValue]="location">
               {{location.name}}
             </option>
           </select>

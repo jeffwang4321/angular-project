@@ -23,13 +23,15 @@ export class AddpigmodalComponent implements OnInit {
   };
 	@Input() locationInput: Location = {
 		name: "",
-		lon: "",
 		lat: "",
+		lon: "",
 		count: 1,
 		key: 0,
   };
+
 	@Input() addlocation: string = "yes";
 	locations: Location[] = [];
+	locationTemp?: any;
 
 	constructor(private modalService: NgbModal, private http: HttpClient) {}
 
@@ -63,11 +65,15 @@ export class AddpigmodalComponent implements OnInit {
   }
 
 	addLocation(): void {
+		const KEY = new Date().valueOf();
+		let obj = {
+			"key": KEY,
+			"data": this.locationInput,
+		}
+		obj["data"].key = KEY;
+
     this.http.post<Report[]>(this.apiURL + 'locations/documents/',
-    	{
-				"key": new Date().valueOf(),
-				"data": this.locationInput,
-			}	
+    	obj
 		).subscribe({
       next: (data) => {
 				location.reload();
@@ -79,38 +85,39 @@ export class AddpigmodalComponent implements OnInit {
   }
 
 	validateReport(): void {
-		// if (this.reportInput.name === "") {
-		// 	alert("Please enter a reporter name");
-		// } else if (this.reportInput.phone == null || (this.reportInput.phone).toString().length != 10) {
-		// 	alert("Please enter a 10 digit phone number");
-		// } else if (this.reportInput.id === "" || this.reportInput.id === null || Number(this.reportInput.id) < 0) {	
-		// 	alert("Please enter a non-negative pig ID");
-		// } else if (this.reportInput.breed === "") {
-		// 	alert("Please enter a pig breed");
-		// } else {
+		if (this.reportInput.name === "") {
+			alert("Please enter a reporter name");
+		} else if (this.reportInput.phone == null || (this.reportInput.phone).toString().length != 10) {
+			alert("Please enter a 10 digit phone number");
+		} else if (this.reportInput.id === "" || this.reportInput.id === null || Number(this.reportInput.id) < 0) {	
+			alert("Please enter a non-negative pig ID");
+		} else if (this.reportInput.breed === "") {
+			alert("Please enter a pig breed");
+		} else {
 			if (this.addlocation === "yes"){
 				if (this.reportInput.location === "") {
-					alert("Please enter a location");
+					alert("Please enter a location name");
 				} else if (this.checkUniqueLocation() === false) {
-					alert("Please enter new location");
-				} else if (this.locationInput.lon == null || (this.locationInput.lon).toString().length == 0) {
-					alert("Please enter a valid longitude");
+					alert("Error: Location name already exists");
 				} else if (this.locationInput.lat == null || (this.locationInput.lat).toString().length == 0) {
 					alert("Please enter a valid latitude");
+				} else if (this.locationInput.lon == null || (this.locationInput.lon).toString().length == 0) {
+					alert("Please enter a valid longitude");
 				} else {
 					this.locationInput.name = this.reportInput.location;
 					this.addLocation();
 					this.addReport();
 				}
 			} else{
-				if (this.locationInput.name === "") {
-					alert("Please enter a location");
+				if (this.locationTemp!.name === "") {
+					alert("Please choose an existing location or add a new one");
 				} else {
-					// this.incrementLocation()
+					this.reportInput.location = this.locationTemp.name;
+					this.incrementLocation();
 					this.addReport();
 				}
 			}
-		// }
+		}
 	}
 
 	getLocations(): void {
@@ -136,10 +143,6 @@ export class AddpigmodalComponent implements OnInit {
 		return arr;
   }
 
-	incrementLocation(): void {
-
-	}
-
 	checkUniqueLocation(): boolean {
 		let res = true;
 		(Object.keys(this.locations) as (keyof typeof this.locations)[]).forEach((key): any => {
@@ -149,7 +152,25 @@ export class AddpigmodalComponent implements OnInit {
 				res = false;
 			}
     });
-
 		return res;
+	}
+
+	incrementLocation(): void {
+		let obj = {
+			"key": this.locationTemp.key,
+			"data": this.locationTemp,
+		}
+		obj["data"].count += 1;
+
+    this.http.put<Location[]>(this.apiURL + 'locations/documents/' + this.locationTemp.key + '/',
+    	obj
+		).subscribe({
+      next: (data) => {
+        // console.log(data);
+      },
+      error: (error) => {
+        console.log('Error:', error);
+      },
+    });
 	}
 }

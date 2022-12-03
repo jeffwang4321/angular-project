@@ -67,7 +67,7 @@ export class MapComponent implements OnInit {
     (Object.keys(this.locations) as (keyof typeof this.locations)[]).forEach((key) => {
       let obj = this.locations[key];
       const data = 'data' as keyof typeof obj;
-      L.marker([obj[data]['lon'], obj[data]['lat']])
+      L.marker([obj[data]['lat'], obj[data]['lon']])
         .addTo(this.map)
         .bindPopup(
           `<b>${obj[data]['name']}</b><br/>${obj[data]['count']} pig reported`
