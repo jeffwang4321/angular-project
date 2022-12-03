@@ -23,15 +23,17 @@
         <td class="tableRow">{{report.location}}</td>
         <td class="tableRow">{{report.date}}</td>
         <td>
-          <button class="btn btn-link" (click)="toggleStatus(report)"> 
+          <!-- <button class="btn btn-link" (click)="toggleStatus(report)"> 
             {{report.status}}
-          </button> 
+          </button>  -->
+          <app-togglestatusmodal [report]="report"></app-togglestatusmodal>
         </td>
         <td>
           <app-infomodal [report]="report"></app-infomodal>
-          <button class="btn btn-danger" (click)="deleteReport(report.key)"> 
+          <!-- <button class="btn btn-danger" (click)="deleteReport(report.key)"> 
             <i class="bi bi-trash-fill"></i>
-          </button> 
+          </button>  -->
+          <app-deletemodal [report]="report"></app-deletemodal>
         </td>
       </tr>
     </tbody>

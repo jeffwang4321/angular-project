@@ -77,7 +77,7 @@ export class MapComponent implements OnInit {
       L.marker([obj[data]['lon'], obj[data]['lat']])
         .addTo(this.map)
         .bindPopup(
-          `<b>${obj[data]['name']}</b><br/>${obj[data]['count']} cases reported.`
+          `<b>${obj[data]['name']}</b><br/>${obj[data]['count']} pig reported`
         )
         .closePopup();
     });

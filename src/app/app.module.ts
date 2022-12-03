@@ -9,6 +9,8 @@ import { DatatableComponent } from './datatable/datatable.component';
 import { MapComponent } from './map/map.component';
 import { AddpigmodalComponent } from './addpigmodal/addpigmodal.component';
 import { InfomodalComponent } from './infomodal/infomodal.component';
+import { DeletemodalComponent } from './deletemodal/deletemodal.component';
+import { TogglestatusmodalComponent } from './togglestatusmodal/togglestatusmodal.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { InfomodalComponent } from './infomodal/infomodal.component';
     DatatableComponent,
     MapComponent,
     AddpigmodalComponent,
-    InfomodalComponent
+    InfomodalComponent,
+    DeletemodalComponent,
+    TogglestatusmodalComponent
   ],
   imports: [
     BrowserModule,
