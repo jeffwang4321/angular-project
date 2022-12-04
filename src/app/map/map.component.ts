@@ -59,20 +59,21 @@ export class MapComponent implements OnInit {
         zoomOffset: -1,
       }
     ).addTo(this.map);
-
     this.createMarkers();
   }
 
   createMarkers(): void {
-    (Object.keys(this.locations) as (keyof typeof this.locations)[]).forEach((key) => {
-      let obj = this.locations[key];
-      const data = 'data' as keyof typeof obj;
-      L.marker([obj[data]['lat'], obj[data]['lon']])
-        .addTo(this.map)
-        .bindPopup(
-          `<b>${obj[data]['name']}</b><br/>${obj[data]['count']} pig reported`
-        )
-        .closePopup();
-    });
+    (Object.keys(this.locations) as (keyof typeof this.locations)[]).forEach(
+      (key) => {
+        let obj = this.locations[key];
+        const data = 'data' as keyof typeof obj;
+        L.marker([obj[data]['lat'], obj[data]['lon']])
+          .addTo(this.map)
+          .bindPopup(
+            `<b>${obj[data]['name']}</b><br/>${obj[data]['count']} pig reported`
+          )
+          .closePopup();
+      }
+    );
   }
 }

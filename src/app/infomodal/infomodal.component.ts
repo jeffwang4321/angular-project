@@ -5,18 +5,16 @@ import { Report } from '../interface';
 @Component({
   selector: 'app-infomodal',
   templateUrl: './infomodal.component.html',
-  styleUrls: ['./infomodal.component.css']
+  styleUrls: ['./infomodal.component.css'],
 })
 export class InfomodalComponent {
   @Input() report?: Report;
 
-  constructor(private modalService: NgbModal) { }
+  constructor(private modalService: NgbModal) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   open(content: any) {
-		this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' });
-	}
-
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' });
+  }
 }
