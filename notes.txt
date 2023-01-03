@@ -27,7 +27,7 @@ Map
 
 
 npm install
-ng server -o
+ng serve -o
 ng generate component map
 ng generate component datatable
 ng generate component addpigmodal

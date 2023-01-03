@@ -1,27 +1,25 @@
-# AngularProject
+# Angular Project - Piggy Report
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.8.
+<p float="left">
+  <img src="" width="420" height="420" />
+  &nbsp;
+  <img src="" width="420" height="420"/>
+  &nbsp;
+  <img src="" width="420" height="420" />
+</p>
 
-## Development server
+- Developed a web application to track pig reports using Angular, leaflet API, and Django REST framework
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Features
 
-## Code scaffolding
+- Interactive web map, cloud storage, ang password protection
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Adding, deleting or modifying pig reports and locations 
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## How to Test
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```
+$ npm install
+$ ng serve -o
+```
