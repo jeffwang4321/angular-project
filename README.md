@@ -10,7 +10,7 @@
 
 ### Features
 
-- Interactive web map, cloud storage, ang password protection
+- Interactive web map, cloud storage, and password protection
 
 - Adding, deleting or modifying pig reports and locations 
 
